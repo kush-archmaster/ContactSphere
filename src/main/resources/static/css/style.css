@@ -30,9 +30,31 @@
 
 .signup-card{
 	padding: 20px;
-	background: yellow;
+	background: #f9f9f9;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	margin: 5%;
 }
 
 form {
-	padding: 0px 50px;
+	padding: 0px 30px;
+}
+
+form div {
+	margin-top: 10px;
+}
+
+#register {
+	font-family:'Lily Script One', cursive;
+	font-weight:bold;
+	text-align:center;
+	color:black;
+	-webkit-transition:0.5s ease all;
+	   -moz-transition:0.5s ease all;
+	    -ms-transition:0.5s ease all;
+	     -o-transition:0.5s ease all;
+	        transition:0.5s ease all;
+}
+
+#register:hover {
+	color:cornflowerblue;
 }
