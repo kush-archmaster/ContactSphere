@@ -2,20 +2,28 @@ package com.contact.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/")
 public class HomePageController {
 
-	@RequestMapping("/home")
+	@GetMapping
 	public String landHomePage(Model model) {
 		model.addAttribute("title", "ContactSphere - One Stop Solution");
 		return "home";
 	}
 	
-	@RequestMapping("/about")
+	@GetMapping("about")
 	public String aboutPage(Model model) {
 		model.addAttribute("title", "ContactSphere - One Stop Solution");
 		return "about";
+	}
+	
+	@GetMapping("signup")
+	public String signupUser(Model model) {
+		model.addAttribute("title", "ContactSphere - One Stop Solution");
+		return "signup";
 	}
 }

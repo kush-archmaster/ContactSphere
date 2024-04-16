@@ -1,3 +1,38 @@
-body {
-	background: #e2e2e2
+.banner {
+	width: 100%;
+	height: 92.8vh;
+	background: white;
+	background-image: url("../image/man_calling_home_bg.jpg"); 
+   	background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.hometext {
+	position: absolute;
+	top: 35%;
+	left: 60%;
+} 
+
+.home-page {
+	width: 90%;
+	border: 1px solid red;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.catchy-text {
+  font-family: Satisfy, cursive;
+  font-size: 2em;
+  color: black;
+  text-shadow: 0.02em 0.02em 0 Brown, 0 0 0.5em violet;
+}
+
+.signup-card{
+	padding: 20px;
+	background: yellow;
+}
+
+form {
+	padding: 0px 50px;
 }

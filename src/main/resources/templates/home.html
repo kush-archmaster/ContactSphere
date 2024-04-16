@@ -1,12 +1,25 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{base::layout(~{::section})}">
 <head>
-	<meta charset="UTF-8">
-	<title>This is home page</title>
+<meta charset="UTF-8">
+<title>This is home page</title>
 </head>
 <body>
-	<section>
-		<h1>Home Page</h1>
+	<section class="banner">
+		<!-- <div class="container home-page">
+			<div class="message-orange">
+				<p class="message-content">I agree that your message is awesome!</p>
+				<div class="message-timestamp-right">SMS 13:37</div>
+			</div> -->
+			<div class="hometext">
+				<h2 class="catchy-text">One stop solution for</h2>
+				<h1>Contact Management</h1>
+				<!-- <h3>Your vibe attracts your tribe. Keep your contacts filled
+					with those who bring out the best in you.</h3> -->
+				<button class="btn btn-primary btn-lg">Get Started</button>
+			</div>
+		<!-- </div> -->
 	</section>
 </body>
 </html>
