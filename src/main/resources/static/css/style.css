@@ -1,6 +1,6 @@
 .home-banner {
 	width: 100%;
-	height: 92.8vh;
+	height: 91.5vh;
 	background: white;
 	background-image: url("../image/man_calling_home_bg.jpg"); 
    	background-size: cover;
@@ -15,7 +15,6 @@
 
 .home-page {
 	width: 90%;
-	border: 1px solid red;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -32,7 +31,7 @@
 	padding: 20px;
 	background: #f9f9f9;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	margin: 10%;
+	margin-top: 5%;
 	border-radius: 2%;
 }
 
@@ -45,15 +44,15 @@ form div {
 }
 
 #register {
-	font-family:'Lily Script One', cursive;
+	font-family: Satisfy, cursive;
 	font-weight:bold;
 	text-align:center;
 	color:black;
-	-webkit-transition:0.5s ease all;
-	   -moz-transition:0.5s ease all;
-	    -ms-transition:0.5s ease all;
-	     -o-transition:0.5s ease all;
-	        transition:0.5s ease all;
+	-webkit-transition:1s ease all;
+	   -moz-transition:1s ease all;
+	    -ms-transition:1s ease all;
+	     -o-transition:1s ease all;
+	        transition:1s ease all;
 }
 
 #register:hover {
@@ -76,12 +75,110 @@ form div {
 }
 
 .pop-up-alert{
-	height: 6vh;
 	padding: 10px;
 }
 
 .signup-bg {
 	 width: 100%;
-	 height: 92.8vh;
+	 height: 91.5vh;
 	 /* background-image: url(https://media.giphy.com/media/U3qYN8S0j3bpK/giphy.gif); */
+}
+
+.custom-cursor {
+    cursor: pointer; 
+}
+
+.login_section {
+	--bg-color:#ede9f8;
+    --color-primary:#2d3436;
+    --color-secondary:#252c6a;
+    --border-radius:4px;
+    height: 91.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-color);
+}
+
+.login_section .container{
+	width:400px;
+    max-width:400px;
+    margin:1rem;
+    padding:2rem;
+    border-radius: var(--border-radius);
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login_section .form--hidden{
+    display: none;
+}
+
+.login_section .form > *:first-child{
+    margin-top:0;
+}
+
+.login_section .form >*:last-child{
+    margin-bottom:0;
+}
+
+.login_section .form__title{
+    margin-bottom: 2rem;
+    text-align: center;
+    font-family: Satisfy, cursive;
+    font-weight:bold;
+	color:black;
+}
+
+.login_section .form__input-group{
+    margin-bottom: 1rem;
+}
+
+.login_section .form__input{
+    display:block;
+    width:100%;
+    padding:0.75rem;
+    box-sizing:border-box;
+    border-radius: var(--border-radius);
+    border:1px solid #ddd;
+    outline:none;
+    background: #eee;
+    transition: background 0.2s border-color 0.2s;
+}
+
+.login_section .form__input:focus{
+    border-color:var(--color-primary);
+    background: #fff;
+}
+
+.login_section .form__button{
+    width: 100%;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #fff;
+    border:none;
+    border-radius: var(--border-radius);
+    outline:none;
+    cursor: pointer;
+    background: var(--color-primary);
+    -webkit-user-select: none;
+}
+
+.login_section .form__button:active{
+    transform: scale(0.98);
+}
+
+.login_section .padding{
+    padding-bottom:10px;
+}
+
+.signup-login-link{
+	margin-top: 10px;
+}
+
+.signup-login-link a{
+  font-weight: 600;
+  text-decoration: none;
+  color: #677eff;
 }

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{base::layout(~{::section})}">
+<head>
+<meta charset="UTF-8">
+<title>This is login page</title>
+</head>
+<body>
+	<section class="login_section">
+		<div class="container">
+			<div class="form" id="login">
+				<h1 class="form__title">Welcome back !</h1>
+				<div class="form__input-group">
+					<input type="text" name="username" class="form__input" autofocus
+						placeholder="Username" id="usernameinput">
+
+				</div>
+				<div class="form__input-group">
+					<input type="password" name="password" class="form__input" autofocus
+						placeholder="Password" id="passwordInput">
+					<div class="padding"></div>
+					<a href="#"><button class="form__button" id="loginButton" type="submit">Login</button></a>
+					<p class="signup-login-link">
+						Don't have an account ? <a th:href="@{/signup}">Sign Up.</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

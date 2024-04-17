@@ -1,0 +1,2 @@
+1) User name last name getting vanished one click on submit button (firstname is showing fine)
+2) whenever documentcontext is reloaded / updates, session reset api call happening -- check if can be avoided.

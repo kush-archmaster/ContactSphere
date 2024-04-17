@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.contact.entities.User;
+import com.contact.dtos.UserDto;
 
 @Controller
 @RequestMapping("/")
@@ -25,8 +25,14 @@ public class HomePageController {
 	
 	@GetMapping("signup")
 	public String signupUser(Model model) {
-		model.addAttribute("title", "ContactSphere - One Stop Solution");
-		model.addAttribute("user", new User());
+		model.addAttribute("title", "ContactSphere - Registeration");
+		model.addAttribute("user", new UserDto());
 		return "signup";
+	}
+	
+	@GetMapping("signin")
+	public String loginUser(Model model) {
+		model.addAttribute("title", "ContactSphere - Login");
+		return "login";
 	}
 }

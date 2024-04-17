@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
           alert.classList.add("fade-out");
           setTimeout(function() {
             alert.remove(); // Remove the alert from the DOM after transition
-          }, 500); 
+          }, 1000); 
           // Remove the alert from the DOM
           console.log("popup removed");
-        }, 1000); 
+        }, 1500); 
 });
