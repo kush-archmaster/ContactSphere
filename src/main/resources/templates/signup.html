@@ -6,29 +6,41 @@
 <title>This is home page</title>
 </head>
 <body>
-	<section>
+	<section class="signup-bg">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 offset-md-3">
 					<div class="signup-card">
+						<div th:if="${session.message}" th:classappend="${session.message.type}" class="alert pop-up-alert" role="alert" id="alert">
+							<p class="text-center" th:text="${session.message.content}"></p>
+						</div> 
 						<h1 class="text-center" id="register">Register Here !</h1>
-						<form action="" th:action="@{/register}" method="post">
+						<form action="" th:action="@{/user/register}" method="post" th:object=${user}>
+						<!-- name -->
 							<div class="form-group">
 								<label for="name" class="form-label">Name</label> 
-								<input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter Here" required>
+								<input name="name" th:value=${user.name} class="form-control" id="name" aria-describedby="name" placeholder="Enter Here" required >
 							</div>
+						<!-- email -->
 							<div class="form-group">
 								<label for="email" class="form-label">Email</label> 
-								<input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Enter Here" required>
+								<input name="email" type="email" th:value=${user.email} class="form-control" id="email" aria-describedby="email" placeholder="Enter Here" required >
 							</div>
+						<!-- password -->
 							<div class="form-group">
 								<label for="password" class="form-label">Password</label> 
-								<input type="password" class="form-control" id="password" aria-describedby="password" placeholder="Enter Here" required>
+								<input name="password" type="password" class="form-control" id="password" aria-describedby="password" placeholder="Enter Here" required>
 							</div>
-							
+						<!-- about -->
 							<div class="form-group">
-								<textarea rows="10" class="form-control" placeholder="You know yourself better than us. Tell us too!"></textarea>
+								<textarea name="about" rows="7" th:value=${user.about} class="form-control" placeholder="You know yourself better than us. Tell us too!"></textarea>
 							</div>
+						<!-- terms and conditions checkbox -->
+							<div class="form-group form-check position-checkbox">
+								<input name= "tnc" type="checkbox" class="form-check-input" id="tnc">
+								<label for="tnc" class="form-label">Accept Terms and Conditions</label> 
+							</div>
+						<!-- submit/reset buttons -->
 							<div class="container text-center">
 								<button type="submit" class="btn btn-dark" >Submit</button>
 								<button type="reset" class="btn btn-warning" >Reset</button>

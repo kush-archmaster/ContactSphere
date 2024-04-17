@@ -1,4 +1,4 @@
-.banner {
+.home-banner {
 	width: 100%;
 	height: 92.8vh;
 	background: white;
@@ -32,7 +32,8 @@
 	padding: 20px;
 	background: #f9f9f9;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	margin: 5%;
+	margin: 10%;
+	border-radius: 2%;
 }
 
 form {
@@ -40,7 +41,7 @@ form {
 }
 
 form div {
-	margin-top: 10px;
+	margin-top: 5px;
 }
 
 #register {
@@ -56,5 +57,31 @@ form div {
 }
 
 #register:hover {
-	color:cornflowerblue;
+	color:#ffc107;
+}
+
+.position-checkbox{
+	display: flex;
+	justify-content: center;
+	padding: 5px
+}
+
+.position-checkbox input{
+	margin-right: 5px;
+}
+
+.fade-out {
+      opacity: 0; 
+      transition: opacity 0.5s ease-in-out;
+}
+
+.pop-up-alert{
+	height: 6vh;
+	padding: 10px;
+}
+
+.signup-bg {
+	 width: 100%;
+	 height: 92.8vh;
+	 /* background-image: url(https://media.giphy.com/media/U3qYN8S0j3bpK/giphy.gif); */
 }

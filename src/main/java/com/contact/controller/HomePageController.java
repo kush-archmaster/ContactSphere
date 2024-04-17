@@ -5,6 +5,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.contact.entities.User;
+
 @Controller
 @RequestMapping("/")
 public class HomePageController {
@@ -24,6 +26,7 @@ public class HomePageController {
 	@GetMapping("signup")
 	public String signupUser(Model model) {
 		model.addAttribute("title", "ContactSphere - One Stop Solution");
+		model.addAttribute("user", new User());
 		return "signup";
 	}
 }
