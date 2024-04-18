@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 @Configuration
 @EnableWebSecurity
@@ -19,6 +20,9 @@ public class SecurityConfig {
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
+	
+	@Autowired
+	private AuthenticationSuccessHandler authenticationSuccessHandler;
 	
 	/*
 	 * needed for username/password authentication from database
@@ -38,7 +42,8 @@ public class SecurityConfig {
 		.authorizeHttpRequests((auth) -> auth.requestMatchers("/admin/**").hasRole("ADMIN")
 				.requestMatchers("/user/**").hasRole("USER")
 				.anyRequest().permitAll())
-		.formLogin((form) -> form.loginPage("/signin"));
+		.formLogin((form) -> form.loginPage("/signin")
+				.successHandler(authenticationSuccessHandler));
 		
 		return http.build();
 	}

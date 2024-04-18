@@ -81,6 +81,11 @@ form div {
 .signup-bg {
 	 width: 100%;
 	 height: 91.5vh;
+	 --bg-color:#ede9f8;
+    --color-primary:#2d3436;
+    --color-secondary:#252c6a;
+    --border-radius:4px;
+     background-color: var(--bg-color);
 	 /* background-image: url(https://media.giphy.com/media/U3qYN8S0j3bpK/giphy.gif); */
 }
 

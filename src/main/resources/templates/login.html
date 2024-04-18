@@ -10,20 +10,30 @@
 		<div class="container">
 			<div class="form" id="login">
 				<h1 class="form__title">Welcome back !</h1>
-				<div class="form__input-group">
-					<input type="text" name="username" class="form__input" autofocus
-						placeholder="Username" id="usernameinput">
+				<form novalidate th:action="@{/signin}" method="post">
+					<div id="alert" th:if="${param.error}" class="alert alert-danger">
+						Invalid username or password</div>
+					<div id="alert" th:if="${param.logout}" class="alert alert-success">You
+						have been logged out!</div>
+						
+					<!-- username -->
+					<div class="form-group form__input-group">
+						<input name="username" class="form-control form__input" id="name"
+							aria-describedby="username" placeholder="Username" required>
+					</div>
+					<!-- password, submit -->
+					<div class="form-group form__input-group">
+						<input name="password" type="password"
+							class="form-control form__input" id="password"
+							aria-describedby="password" placeholder="Password" required>
+						<div class="padding"></div>
+						<button type="submit" class="form__button" id="loginButton">Login</button>
+						<p class="signup-login-link">
+							Don't have an account ? <a th:href="@{/signup}">Sign Up.</a>
+						</p>
+					</div>
+				</form>
 
-				</div>
-				<div class="form__input-group">
-					<input type="password" name="password" class="form__input" autofocus
-						placeholder="Password" id="passwordInput">
-					<div class="padding"></div>
-					<a href="#"><button class="form__button" id="loginButton" type="submit">Login</button></a>
-					<p class="signup-login-link">
-						Don't have an account ? <a th:href="@{/signup}">Sign Up.</a>
-					</p>
-				</div>
 			</div>
 		</div>
 	</section>

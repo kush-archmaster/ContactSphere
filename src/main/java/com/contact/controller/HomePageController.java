@@ -35,4 +35,13 @@ public class HomePageController {
 		model.addAttribute("title", "ContactSphere - Login");
 		return "login";
 	}
+	
+	/*
+	 * pending to design
+	 */
+	@GetMapping("dashboard")
+	public String defaultDashboard(Model model) {
+		model.addAttribute("title", "ContactSphere - Login");
+		return "dashboard";
+	}
 }
