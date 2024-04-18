@@ -74,6 +74,16 @@ form div {
       transition: opacity 0.5s ease-in-out;
 }
 
+.toggle-out {
+      opacity: 0; 
+      transition: opacity 0.3s ease-in-out;
+}
+
+.toggle-in {
+      opacity: 1; 
+      transition: opacity 0.3s ease-in-out;
+}
+
 .pop-up-alert{
 	padding: 10px;
 }
@@ -186,4 +196,72 @@ form div {
   font-weight: 600;
   text-decoration: none;
   color: #677eff;
+}
+
+/* side bar */
+@media only screen and (max-width: 600px) {
+	.sidebar{
+		display: none;
+		border: 1px solid;
+		width: 80% !important;
+		background: #212529;
+		height: 100%;
+		position: fixed;
+		padding-top: 20px;
+	}
+	
+	.ds-content{
+	margin-left: 2% !important;
+}
+}
+
+.sidebar{
+	border: 1px solid;
+	width: 18%;
+	background: #212529;
+	height: 100%;
+	position: fixed;
+	padding-top: 40px;
+}
+
+.sidebar a {
+	display: block;
+	width: 100%;
+	padding: 10px 25px;
+	text-decoration: none;
+	color: white;
+}
+
+.sidebar a:hover{
+	background: #fa0548;
+	transition: 0.2s ease-in-out all;
+	font-size: large;
+	font-weight: bold;
+}
+
+.sidebar a i {
+	margin-right: 10px;
+}
+
+.ds-content{
+	margin-left: 20%;
+}
+
+.ds-content i {
+	cursor: pointer;
+}
+
+#barIcon{
+	color: white;
+}
+#barIcon:hover{
+	color: #fa0548;
+	transition: 0.2s ease-in-out all;
+}
+.bar-cover {
+	background: #212529;
+	margin-top: 5px;
+	width: 33px;
+	height: 33px;
+	border-radius: 50%;
 }

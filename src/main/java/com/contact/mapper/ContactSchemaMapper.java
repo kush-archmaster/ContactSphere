@@ -30,4 +30,7 @@ public interface ContactSchemaMapper {
 		}
 		return null;
 	}
+
+	@Mapping(target = "password", ignore = true)
+	UserDto toUserDto(User user);
 }
