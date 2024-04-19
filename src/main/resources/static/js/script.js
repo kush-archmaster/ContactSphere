@@ -21,7 +21,7 @@ const toggleSidebar = () => {
       //   sidebar.classList.add("toggle-out");
       //   setTimeout(()=> {
           sidebar.style.display = 'none';
-          content.style.setProperty('margin-left', '2%');
+          content.style.setProperty('margin-left', '0.5%');
       //   }, 600); 
       // }, 900); 
     }
@@ -30,7 +30,7 @@ const toggleSidebar = () => {
       //   sidebar.classList.add("toggle-in");
       //   setTimeout(()=> {
           sidebar.style.display = 'block';
-          content.style.setProperty('margin-left', '20%');
+          content.style.setProperty('margin-left', '19%');
       //   }, 600); 
       // }, 900); 
       

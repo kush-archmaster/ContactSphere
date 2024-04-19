@@ -1,3 +1,7 @@
+*{
+  box-sizing:border-box;
+}
+
 .home-banner {
 	width: 100%;
 	height: 91.5vh;
@@ -198,7 +202,7 @@ form div {
   color: #677eff;
 }
 
-/* side bar */
+/* user dashboard */
 @media only screen and (max-width: 600px) {
 	.sidebar{
 		display: none;
@@ -210,9 +214,15 @@ form div {
 		padding-top: 20px;
 	}
 	
+	.bar-cover {
+		display: none;
+	}
+	.nav-div {
+		display: none;
+	}
 	.ds-content{
-	margin-left: 2% !important;
-}
+		margin-left: 0% !important;
+	}
 }
 
 .sidebar{
@@ -244,24 +254,88 @@ form div {
 }
 
 .ds-content{
-	margin-left: 20%;
-}
-
-.ds-content i {
-	cursor: pointer;
+	margin-left: 19%;
+	display: flex;
 }
 
 #barIcon{
 	color: white;
 }
-#barIcon:hover{
-	color: #fa0548;
-	transition: 0.2s ease-in-out all;
-}
+
 .bar-cover {
 	background: #212529;
 	margin-top: 5px;
+	margin-right: 10px;
 	width: 33px;
 	height: 33px;
 	border-radius: 50%;
 }
+.bar-cover:hover {
+	background: #fa0548;
+	transition: 0.2s ease-in-out all;
+	cursor: pointer;
+}
+
+.user_dashboard_bg {
+  background:#f0f0f0;
+  line-height:normal;
+/*   font-size: $font-size + 3; */
+  overflow-Y:scroll;
+  font-family: 'Roboto Condensed', "Helvetica Neue",Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased !important;
+  width: 100%;
+  padding: 8px;
+  height: 91.5vh;
+}
+
+.rad-page-title{
+	margin-bottom:20px;
+  	text-shadow: 1px 4px 6px #c6c6c6, 0 0 0 #000, 1px 4px 6px #c6c6c6;
+}
+
+.rad-page-title span{
+		font-size:25px;
+		font-weight:500;
+		display:block;
+}
+
+.user_dashboard_bg a,a:hover, a:visited, a:link, a:active{
+	text-decoration : none; 
+}
+
+.user_dashboard_bg header div {
+	display: flex;
+	font-size: 18px;
+	font-weight: lighter;
+}
+
+.user_dashboard_bg header a {
+	margin-left: 5px;
+	font-size: 15px;
+}
+
+.user_dashboard_bg .row {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	padding-bottom: 20px;
+}
+
+.graph-container{
+	background-color: white;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+ .pie-chart {
+  border: 1px solid grey;
+  width: 200px; 
+  height: 200px; 
+  border-radius: 50%;
+  margin: 20px;
+  cursor: pointer;
+  position: relative;
+  color: black;
+} 

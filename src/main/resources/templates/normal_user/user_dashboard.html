@@ -1,12 +1,78 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{normal_user/user_base::layout(~{::section})}">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{normal_user/user_base::layout(~{::section})}">
 <head>
-	<meta charset="UTF-8">
-	<title>Dashboard</title>
+<meta charset="UTF-8">
+<title>Dashboard</title>
 </head>
 <body>
-	<section>
-		<h1> Hi <span th:text="${user.name}"></span></h1>
+	<section class="user_dashboard_bg">
+		<div class="container-fluid">
+			<header class="rad-page-title">
+				<span>Dashboard</span> 
+				<div>
+					<p th:text="'Welcome ' + ${#strings.substringBefore(user.name, ' ')}"> </p> , <a
+					href="https://www.google.com/maps/place/3720+Emerald+St,+Torrance,+CA+90503/@33.8403836,-118.3543828,17z/data=!4m18!1m15!4m14!1m6!1m2!1s0x80c2b4d407f58b11:0xdedca55964c89054!2s3720+Emerald+St,+Torrance,+CA+90503!2m2!1d-118.3520761!2d33.8403792!1m6!1m2!1s0x80c2b4d407f58b11:0xdedca55964c89054!2s3720+Emerald+St,+Torrance,+CA+90503!2m2!1d-118.3520761!2d33.8403792!3m1!1s0x80c2b4d407f58b11:0xdedca55964c89054"
+					target="_blank"><i class="fa fa-map-marker rad-txt-danger"></i>
+						Ghaziabad, India</a>
+				</div>
+			</header>
+			<div class="row">
+				<!-- th:attr="data-family-value=20, data-friends-value=50, data-work-value=20, data-misc-value=10"> -->
+				<div class="col-lg-4 col-xs-12 text-center graph-container">
+					<div class="pie-chart" id="pie-chart" >
+						<div class="slice" id="slice1"><p>20%</p></div>
+						<div class="slice" id="slice2"><p>50%</p></div>
+						<div class="slice" id="slice3"><p>20%</p></div>
+						<div class="slice" id="slice4"><p>10%</p></div>
+					</div>
+				</div>
+				<div class="col-lg-8 col-xs-12 text-center graph-container">
+					aaa
+				</div>
+			</div>
+			<div class="row">
+				<!-- th:attr="data-family-value=20, data-friends-value=50, data-work-value=20, data-misc-value=10"> -->
+				<div class="col-lg-8 col-xs-12 text-center graph-container">
+					<div class="pie-chart" id="pie-chart" >
+						<div class="slice" id="slice1"><p>20%</p></div>
+						<div class="slice" id="slice2"><p>50%</p></div>
+						<div class="slice" id="slice3"><p>20%</p></div>
+						<div class="slice" id="slice4"><p>10%</p></div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-xs-12 text-center graph-container">
+					aaa
+				</div>
+			</div>
+			<div class="row">
+				<!-- th:attr="data-family-value=20, data-friends-value=50, data-work-value=20, data-misc-value=10"> -->
+				<div class="col-lg-4 col-xs-12 text-center graph-container">
+					<div class="pie-chart" id="pie-chart" >
+						<div class="slice" id="slice1"><p>20%</p></div>
+						<div class="slice" id="slice2"><p>50%</p></div>
+						<div class="slice" id="slice3"><p>20%</p></div>
+						<div class="slice" id="slice4"><p>10%</p></div>
+					</div>
+				</div>
+				<div class="col-lg-5 col-xs-12 text-center graph-container">
+					<div class="pie-chart" id="pie-chart" >
+						<div class="slice" id="slice1"><p>20%</p></div>
+						<div class="slice" id="slice2"><p>50%</p></div>
+						<div class="slice" id="slice3"><p>20%</p></div>
+						<div class="slice" id="slice4"><p>10%</p></div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-xs-12 text-center graph-container">
+					<div class="pie-chart" id="pie-chart" >
+						<div class="slice" id="slice1"><p>20%</p></div>
+						<div class="slice" id="slice2"><p>50%</p></div>
+						<div class="slice" id="slice3"><p>20%</p></div>
+						<div class="slice" id="slice4"><p>10%</p></div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</section>
 </body>
 </html>

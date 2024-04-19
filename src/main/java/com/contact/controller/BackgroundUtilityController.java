@@ -13,6 +13,5 @@ public class BackgroundUtilityController {
 	@GetMapping("/removeMessageFromSession")
 	public void removeAttribute(HttpSession session) {
 		session.removeAttribute("message");
-		log.info("Session attribute reset");
 	}
 }
