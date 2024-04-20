@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{normal_user/user_base::layout(~{::section})}">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard</title>
+</head>
+<body>
+	<section class="contact_bg">
+		<div class="card col-md-8 offset-md-2">
+			<div class="card-body">
+				<h1 class="text-center">Add Contact</h1>
+				<div class="container-fluid mt-1">
+					<div class="row">
+						<div class="col-md-8 offset-md-2">
+							<form th:object="${contact}" enctype="multipart/form-data"
+								method="POST" th:action="@{/user/saveContact}"
+								class="mt-2 check">
+								<!-- name -->
+								<div class="row">
+									<div class="col">
+										<input type="text" name="firstname" class="form-control" placeholder="First name">
+									</div>
+									<div class="col">
+										<input type="text" name="lastname" class="form-control" placeholder="Last name">
+									</div>
+								</div>
+								
+								<!-- phone number and dob -->
+								<div class="row mt-1 align-items-center">
+									<div class="col-2">
+										<div class="input-group-prepend input-group-text">+91</div>
+									</div>
+									<div class="col-6 mt-1">
+										<input type="tel" name="phone" class="form-control" placeholder="Phone Number">
+									</div>
+									<div class="col-4">
+										<div id="datepicker" class="input-group date"
+											data-date-format="mm-dd-yyyy">
+											<input class="form-control" type="text" name="dob" readonly /> <span
+												class="input-group-addon"> <i
+												class="glyphicon glyphicon-calendar"></i>
+											</span>
+										</div>
+									</div>
+									
+								</div>
+								
+								<!-- residential address -->
+								<div class="row mt-2 align-items-center">
+									<div class="col">
+										<input type="text" name="address" class="form-control" placeholder="Residential Address">
+									</div>
+								</div>
+
+								<!-- work and email address -->
+								<div class="row mt-2">
+									<div class="col-5">
+										<input type="text" name="work" class="form-control" placeholder="Occupation">
+									</div>
+									<div class="col-7">
+										<input type="text" name="email" class="form-control" placeholder="Email Address">
+									</div>
+								</div>
+								
+								<!-- description -->
+								<div class="form-group mt-2">
+									<textarea name="description" id="description" rows="6" class="form-control" placeholder="Something you remember this person by..."></textarea>
+								</div>
+								
+								<!-- image upload -->
+								<div class="custom-file mt-2">
+									<input type="file" name="imgUrl">
+								</div>
+								
+								<!-- save button -->
+								<div class="container mt-2 text-center">
+									<button class="btn btn-outline-primary" type="submit">Save Contact</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

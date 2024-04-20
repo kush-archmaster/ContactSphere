@@ -1,5 +1,7 @@
 package com.contact.entities;
 
+import java.sql.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -32,6 +34,8 @@ public class Contact {
 	private String imgUrl;
 	@Column(length = 10000)
 	private String description;
+	private Date dob;
+	private String address;
 	
 	@ManyToOne
 	private User user;

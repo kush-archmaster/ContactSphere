@@ -232,6 +232,7 @@ form div {
 	height: 100%;
 	position: fixed;
 	padding-top: 40px;
+	z-index: 999;
 }
 
 .sidebar a {
@@ -339,3 +340,14 @@ form div {
   position: relative;
   color: black;
 } 
+
+.contact_bg {
+  font-family: 'Roboto Condensed', "Helvetica Neue",Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased !important;
+  width: 100%;
+  padding: 8px;
+}
+
+.contact_bg .card {
+	margin-top: 30px;
+}
