@@ -15,13 +15,11 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ContactDto {
 
-	@NotEmpty(message = "Please enter your name!")
-	@Size(min = 2, max = 25, message = "Name must be between 2 to 25 characters!")
+	@Size(min = 0, max = 25, message = "Name must be between 2 to 25 characters!")
 	@Pattern(regexp = "^[a-zA-Z]+(?:\\s[a-zA-Z]+)?$", message = "Invalid first name!" )
 	private String firstName;
 	
-	@NotEmpty(message = "Please enter your name!")
-	@Size(min = 2, max = 25, message = "Name must be between 2 to 25 characters!")
+	@Size(min = 0, max = 25, message = "Name must be between 2 to 25 characters!")
 	@Pattern(regexp = "^[a-zA-Z]+(?:\\s[a-zA-Z]+)?$", message = "Invalid last name!" )
 	private String lastName;
 	private String work;

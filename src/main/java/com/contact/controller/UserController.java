@@ -12,9 +12,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.contact.dtos.ContactDto;
+import com.contact.entities.Contact;
 import com.contact.entities.User;
 import com.contact.mapper.ContactSchemaMapper;
 import com.contact.repositories.UserRepository;
+
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/user")
@@ -49,13 +52,26 @@ public class UserController {
 	}
 	
 	@PostMapping("/saveContact")
-	public String saveContact(@ModelAttribute("contact") ContactDto contactDto,
-			BindingResult result, Model model) {
+	public String saveContact(@Valid @ModelAttribute("contact") ContactDto contactDto,
+			BindingResult result, Model model, Principal principal) {
 		if(result.hasErrors()) {
 			model.addAttribute("contact", contactDto);
 			return "/normal_user/add_contact_form";
 		}
-		System.out.println(contactDto);
+		
+		User user = userRepository.getUserByEmail(principal.getName());
+		if(user!=null) {
+			Contact contact = contactSchemaMapper.toContact(contactDto);
+			/*
+			 * link contact with the user
+			 */
+			contact.setUser(user);
+			user.getContact().add(contact);
+			
+			User saveUser = userRepository.save(user);
+			System.out.println("Saved " + saveUser);
+		}
+		
 		return "/normal_user/add_contact_form";
 	}
 }
