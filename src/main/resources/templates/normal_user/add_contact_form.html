@@ -11,6 +11,14 @@
 			<div class="card-body">
 				<h1 class="text-center">Add Contact</h1>
 				<div class="container-fluid mt-1">
+					<!-- session error if occured -->
+					<div class="row">
+						<div class="col-md-6 offset-md-3"> 
+							<div th:if="${session.message}" th:classappend="${session.message.type}" class="row alert pop-up-alert fade-in-alert" role="alert" id="alert">
+								<p class="text-center" th:text="${session.message.content}"></p>
+							</div> 
+						</div>
+					</div>
 					<div class="row">
 						<div class="col-md-8 offset-md-2">
 							<form th:object="${contact}" enctype="multipart/form-data"
@@ -19,7 +27,7 @@
 								<!-- name -->
 								<div class="row">
 									<div class="col">
-										<input type="text" name="firstName" class="form-control" 
+										<input type="text" name="firstName" th:value="${contact.firstName}" class="form-control" 
 										th:classappend="${#fields.hasErrors('firstName') ? 'is-invalid' : ''}" placeholder="First name">
 										<!-- server side validation -->
 										<div class="invalid-feedback"
@@ -27,7 +35,7 @@
 										</div>
 									</div>
 									<div class="col">
-										<input type="text" name="lastName" class="form-control"  
+										<input type="text" name="lastName" th:value="${contact.lastName}" class="form-control"  
 										th:classappend="${#fields.hasErrors('lastName') ? 'is-invalid' : ''}" placeholder="Last name">
 										<!-- server side validation -->
 										<div class="invalid-feedback"
@@ -42,13 +50,13 @@
 										<div class="input-group-prepend input-group-text">+91</div>
 									</div>
 									<div class="col-6 mt-1">
-										<input type="tel" name="phone" class="form-control" placeholder="Phone Number">
+										<input type="tel" name="phone" th:value="${contact.phone}" class="form-control" placeholder="Phone Number">
 									</div>
 									<div class="col-4">
 										<div id="datepicker" class="input-group date"
 											data-date-format="mm-dd-yyyy">
 											<input class="form-control" type="text" 
-											th:classappend="${#fields.hasErrors('dob') ? 'is-invalid' : ''}" name="dob" readonly /> <span
+											th:classappend="${#fields.hasErrors('dob') ? 'is-invalid' : ''}" name="dob" th:value="${contact.dob}" readonly /> <span
 												class="input-group-addon"> <i
 												class="glyphicon glyphicon-calendar"></i>
 											</span>
@@ -64,7 +72,7 @@
 								<!-- residential address -->
 								<div class="row mt-2 align-items-center">
 									<div class="col">
-										<input type="text" name="address" 
+										<input type="text" name="address" th:value="${contact.address}"
 										th:classappend="${#fields.hasErrors('address') ? 'is-invalid' : ''}" class="form-control" placeholder="Residential Address">
 										<!-- server side validation -->
 										<div class="invalid-feedback"
@@ -76,10 +84,10 @@
 								<!-- work and email address -->
 								<div class="row mt-2">
 									<div class="col-5">
-										<input type="text" name="work" class="form-control" placeholder="Occupation">
+										<input type="text" name="work" th:value="${contact.work}" class="form-control" placeholder="Occupation">
 									</div>
 									<div class="col-7">
-										<input type="text" name="email" th:classappend="${#fields.hasErrors('email') ? 'is-invalid' : ''}"
+										<input type="text" name="email" th:value="${contact.email}" th:classappend="${#fields.hasErrors('email') ? 'is-invalid' : ''}"
 										class="form-control" placeholder="Email Address">
 										<!-- server side validation -->
 										<div class="invalid-feedback"
@@ -88,9 +96,22 @@
 									</div>
 								</div>
 								
+								<!-- Gender -->
+								<!-- <div class="row mt-2">
+									<div class="col">
+										<select class="custom-select mr-sm-2"
+											id="inlineFormCustomSelect">
+											<option selected>Choose...</option>
+											<option value="1">One</option>
+											<option value="2">Two</option>
+											<option value="3">Three</option>
+										</select>
+									</div>
+								</div> -->
+								
 								<!-- description -->
 								<div class="form-group mt-2">
-									<textarea name="description" id="description" rows="6" class="form-control" placeholder="Something you remember this person by..."></textarea>
+									<textarea name="description" th:text="${contact.description}" id="description" rows="6" class="form-control" placeholder="Something you remember this person by..."></textarea>
 								</div>
 								
 								<!-- image upload -->

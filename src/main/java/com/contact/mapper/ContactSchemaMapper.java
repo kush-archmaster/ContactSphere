@@ -39,7 +39,7 @@ public interface ContactSchemaMapper {
 	default Date convertStringToDate(String date) {
 		if(date!=null) {
 			try {
-				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+				SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
 
 				java.util.Date utilDate = dateFormat.parse(date);
 				Date sqlDate = new Date(utilDate.getTime());
@@ -56,5 +56,6 @@ public interface ContactSchemaMapper {
 	UserDto toUserDto(User user);
 
 	@Mapping(target = "dob", expression = "java(convertStringToDate(contactDto.getDob()))")
+	@Mapping(target = "imgUrl", ignore = true)
 	Contact toContact(ContactDto contactDto);
 }
