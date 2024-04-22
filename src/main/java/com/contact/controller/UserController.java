@@ -112,7 +112,7 @@ public class UserController {
 			
 		} catch (Exception e) {
 			model.addAttribute("user", contactDto);
-			session.setAttribute("message", new Message(e.getMessage(), "alert-danger"));
+			session.setAttribute("message", new Message("Something went wrong! Please try again after sometime.", "alert-danger"));
 		}
 		return "/normal_user/add_contact_form";
 	}
