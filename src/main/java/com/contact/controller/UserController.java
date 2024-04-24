@@ -1,6 +1,7 @@
 package com.contact.controller;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,6 +21,7 @@ import com.contact.entities.Contact;
 import com.contact.entities.User;
 import com.contact.mapper.ContactSchemaMapper;
 import com.contact.models.Message;
+import com.contact.repositories.ContactRepository;
 import com.contact.repositories.UserRepository;
 import com.contact.utility.ImageUploadUtil;
 
@@ -34,6 +36,9 @@ public class UserController {
 	
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	private ContactRepository contactRepository;
 	
 	@Autowired
 	private ContactSchemaMapper contactSchemaMapper;
@@ -115,5 +120,20 @@ public class UserController {
 			session.setAttribute("message", new Message("Something went wrong! Please try again after sometime.", "alert-danger"));
 		}
 		return "/normal_user/add_contact_form";
+	}
+	
+	@GetMapping("/contactList")
+	public String showContactList(Model model, Principal principal) {
+		List<ContactDto> contactDtoList = new ArrayList<>();
+		model.addAttribute("title", "ContactSphere - Show Contacts List");
+		
+		User user = userRepository.getUserByEmail(principal.getName());
+		List<Contact> contactsList = contactRepository.findContactsByUserId(user.getId());
+		if(!contactsList.isEmpty()) {
+			contactDtoList = contactSchemaMapper.toContactDtoList(contactsList);
+		}
+		
+		model.addAttribute("contactsList", contactDtoList);
+		return "/normal_user/view_contacts";
 	}
 }

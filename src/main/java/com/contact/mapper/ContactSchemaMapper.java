@@ -6,6 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -51,6 +52,13 @@ public interface ContactSchemaMapper {
 		}
 		return null;
 	}
+	
+	default String convertDateToString(Date date) {
+		if(date!=null) {
+			return date.toString();
+		}
+		return null;
+	}
 
 	@Mapping(target = "password", ignore = true)
 	UserDto toUserDto(User user);
@@ -58,4 +66,6 @@ public interface ContactSchemaMapper {
 	@Mapping(target = "dob", expression = "java(convertStringToDate(contactDto.getDob()))")
 	@Mapping(target = "imgUrl", ignore = true)
 	Contact toContact(ContactDto contactDto);
+
+	List<ContactDto> toContactDtoList(List<Contact> contactsList);
 }

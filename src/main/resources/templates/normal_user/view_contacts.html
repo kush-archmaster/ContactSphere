@@ -1,0 +1,38 @@
+<!-- doctype html -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{normal_user/user_base::layout(~{::section})}">
+<head>
+	<title>Show Contacts</title>
+</head>
+<body>
+	<section class="contact_bg">
+		<div class="card col-md-8 offset-md-2">
+			<div class="card-body">
+				<h1 class="text-center">Your Contacts List!</h1>
+				<table class="table text-center">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Name</th>
+							<th scope="col">Email</th>
+							<th scope="col">Phone</th>
+							<th scope="col">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="c : ${contactsList}">
+							<td scope="row" th:text="'ID-'+${c.cId}">1</td>
+							<td th:text="${c.firstName} + ' ' + ${c.lastName}"></td>
+							<td th:text="${c.email}"></td>
+							<td th:text="${c.phone}"></td>
+							<td>
+								<button class="btn btn-danger btn-sm">Delete</button>
+								<button class="btn btn-primary btn-sm">Edit</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

@@ -15,6 +15,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ContactDto {
 
+	private String cId;
 	@Size(min = 0, max = 25, message = "Name must be between 2 to 25 characters!")
 	@Pattern(regexp = "^[a-zA-Z]+(?:\\s[a-zA-Z]+)?$", message = "Invalid first name!" )
 	private String firstName;
