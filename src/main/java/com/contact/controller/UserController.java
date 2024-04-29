@@ -6,11 +6,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -122,18 +125,24 @@ public class UserController {
 		return "/normal_user/add_contact_form";
 	}
 	
-	@GetMapping("/contactList")
-	public String showContactList(Model model, Principal principal) {
+	/*
+	 * Pagination support , configured max records in each page= 5
+	 */
+	@GetMapping("/viewContacts/{page}")
+	public String showContactList(@PathVariable Integer page, Model model, Principal principal) {
 		List<ContactDto> contactDtoList = new ArrayList<>();
 		model.addAttribute("title", "ContactSphere - Show Contacts List");
 		
 		User user = userRepository.getUserByEmail(principal.getName());
-		List<Contact> contactsList = contactRepository.findContactsByUserId(user.getId());
-		if(!contactsList.isEmpty()) {
-			contactDtoList = contactSchemaMapper.toContactDtoList(contactsList);
+		Page<Contact> contactsPage = contactRepository.findContactsByUserId(user.getId(), PageRequest.of(page, 3));
+		if(!contactsPage.isEmpty()) {
+			contactDtoList = contactSchemaMapper.toContactDtoList(contactsPage.getContent());
 		}
 		
 		model.addAttribute("contactsList", contactDtoList);
+		model.addAttribute("currentPage", page);
+		model.addAttribute("totalPages", contactsPage.getTotalPages());
 		return "/normal_user/view_contacts";
 	}
+	
 }

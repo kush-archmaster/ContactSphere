@@ -1,6 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-	th:fragment="layout(content)">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(content)">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,7 +24,7 @@
 	<!-- navbar start -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<div class="container">
-			<image src="../image/logo.png" width="200px" height="50px"/>
+			<image src="/image/logo.png" width="200px" height="50px"/>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarNav"
 				aria-controls="navbarNav" aria-expanded="false"
@@ -46,7 +45,7 @@
 	<div class="sidebar" id="sidebar">
 		<a class="item" th:href="@{/user/dashboard}"><i class="fa-solid fa-house-user"></i> Home</a>
 		<a class="item" href="#"><i class="fas fa-user-circle"></i> Your Profile</a>
-		<a class="item" th:href="@{/user/contactList}"><i class="fas fa-id-card-alt"></i> View Contacts</a>
+		<a class="item" th:href="@{/user/viewContacts/0}"><i class="fas fa-id-card-alt"></i> View Contacts</a>
 		<a class="item" th:href="@{/user/addContact}"><i class="fas fa-pencil-alt"></i> Add Contact</a>
 		<a class="item" href="#"><i class="fas fa-cogs"></i> Settings</a>
 		<a class="item" th:href="@{/logout}"><i class="fas fa-sign-out-alt"></i> Logout</a>
