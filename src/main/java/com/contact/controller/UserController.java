@@ -3,6 +3,7 @@ package com.contact.controller;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -134,7 +135,7 @@ public class UserController {
 		model.addAttribute("title", "ContactSphere - Show Contacts List");
 		
 		User user = userRepository.getUserByEmail(principal.getName());
-		Page<Contact> contactsPage = contactRepository.findContactsByUserId(user.getId(), PageRequest.of(page, 3));
+		Page<Contact> contactsPage = contactRepository.findContactsByUserId(user.getId(), PageRequest.of(page, 6));
 		if(!contactsPage.isEmpty()) {
 			contactDtoList = contactSchemaMapper.toContactDtoList(contactsPage.getContent());
 		}
@@ -142,7 +143,15 @@ public class UserController {
 		model.addAttribute("contactsList", contactDtoList);
 		model.addAttribute("currentPage", page);
 		model.addAttribute("totalPages", contactsPage.getTotalPages());
-		return "/normal_user/view_contacts";
+		return "/normal_user/view_contacts2";
 	}
 	
+	
+	@GetMapping("/contact/{contactId}")
+	public String showContactList(@PathVariable Long contactId, Model model) {
+		Optional<Contact> contactOptional = contactRepository.findById(contactId);
+		Contact contact = contactOptional.get();
+		model.addAttribute("contact", contact);
+		return "/normal_user/contact_detail";
+	}
 }

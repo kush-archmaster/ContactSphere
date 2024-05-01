@@ -4,40 +4,31 @@
 	<title>Show Contacts</title>
 </head>
 <body>
-	<section class="contact_bg">
-		<div class="card col-md-10 offset-md-1">
-			<div class="card-body">
+	<section class="contact_bg contact_list">
+		<div class="card col-md-8 offset-md-2">
+			<div class="card-body text-center">
 				<h2>Contact Book</h2>
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th scope="col">#</th>
-							<th scope="col">Name</th>
-							<th scope="col">Email</th>
-							<th scope="col">Phone</th>
-							<th scope="col">Action</th>
-						</tr>
-					</thead>
-					<tbody class="">
-						<tr th:each="c : ${contactsList}">
-							<td scope="row" th:text="'ID-'+${c.cId}"></td>
-							<td >
-								<img alt="profile photo" src="" th:src="@{'/image/'+ ${c.imgUrl}}" class="profile-pic-contacts">	
-								<span th:text="${c.firstName} + ' ' + ${c.lastName}"> </span>
-							</td>
-							<td>
-								<a th:href="@{'/user/contact/' + ${c.cId}}">
-									<span th:text="${c.email}"></span>
-								</a>
-							</td>
-							<td th:text="${c.phone}"></td>
-							<td>
-								<button class="btn btn-danger btn-sm">Delete</button>
-								<button class="btn btn-primary btn-sm">Edit</button>
-							</td>
-						</tr>
-					</tbody>
-				</table>
+				<div class="card-wrapper">
+					<div th:each="c : ${contactsList}" class="card">
+						<div class="photo">
+							<img alt="profile photo" src="" th:src="@{'/image/'+ ${c.imgUrl}}" class="contact-card-img">	
+						</div>
+						<div class="banner"></div>
+						<ul>
+							<li><b th:text="${c.firstName} + ' ' + ${c.lastName}"></b></li>
+							<li th:text="${c.work}"></li>
+						</ul>
+						<a th:href="@{'/user/contact/' + ${c.cId}}">
+							<button class="contact" id="main-button">View Contact Details</button>
+						</a>
+						<div class="contact-card-buttons mt-2">
+							<button class="btn btn-danger btn-sm">Delete</button>
+							<button class="btn btn-primary btn-sm">Edit</button>
+						</div>
+						
+					</div>
+				</div>
+
 				<div class="container">
 					<div class="row">
 						<div class="col-md-6 offset-md-3">
