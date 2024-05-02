@@ -345,7 +345,7 @@ form div {
   font-family: 'Roboto Condensed', "Helvetica Neue",Helvetica,Arial,sans-serif;
   -webkit-font-smoothing: antialiased !important;
   width: 100%;
-  padding: 8px;
+  padding: 5px;
 }
 
 .contact_bg .card {
@@ -368,7 +368,7 @@ contacts view style 1
 /*
 contacts view style 2 
 */
-.card-wrapper {
+ .card-wrapper {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -390,12 +390,13 @@ contacts view style 2
     -o-transition:      all 0.3s ease-in-out;
     -ms-transition:     all 0.3s ease-in-out;
     cursor: pointer;
-/*
+
         -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
 	-moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
 	box-shadow: 0 0 15px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.2);
-*/
+
 }
+
 .contact_list{
 	 overflow-Y:scroll;
   font-family: 'Roboto Condensed', "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -404,10 +405,15 @@ contacts view style 2
   height: 91.5vh;
 }
 
+.contact_list .card {
+	margin-top: 10px;
+}
+
 .card-body .card:hover {
 	width: 300px;
 	height: 320px;
 }
+
 
 .banner
 {
@@ -426,6 +432,7 @@ contacts view style 2
     height: 0;
   
 }
+
 
 .photo
 {
@@ -448,6 +455,7 @@ contacts view style 2
     -ms-transition:     top 0.7s ease-in-out, background 0.15s ease;
 }
 
+
 .contact-card-img {
 	height: 100px;
 	width: 100px;
@@ -458,6 +466,7 @@ contacts view style 2
 {
     top:-80px;
 }
+
 .card ul
 {
     list-style: none;
@@ -472,13 +481,7 @@ contacts view style 2
     -ms-transition:     all 0.7s ease-in-out;
 }
 
-.card ul.active
-{
-    opacity:0;
-    visibility: hidden;
-}
-
-.card i
+.contact-det .card i
 {
     font-size: 25px;
     display: inline-block;
@@ -490,11 +493,12 @@ contacts view style 2
     color: #C7D0E1;
 }
 
+
 button.contact
 {
     margin: 0 auto;
     text-align: center;
-    margin-top: -15px;
+    margin-top: -25px;
     width: 100%;
     height: 35px;
     display: block;    
@@ -522,6 +526,7 @@ button.contact:focus
     outline: 0;
 }
 
+
 .social-media-banner
 {
     width: 300px;
@@ -533,16 +538,6 @@ button.contact:focus
     -moz-transition:    all 1.5s ease-in-out;
     -o-transition:      all 1.5s ease-in-out;
     -ms-transition:     all 1.5 ease-in-out;
-}
-
-.social-media-banner.active
-{
-    opacity:0;
-    visibility: hidden;
-        -webkit-transition: all 0.1s ease-in-out;
-    -moz-transition:    all 0.1s ease-in-out;
-    -o-transition:      all 0.1s ease-in-out;
-    -ms-transition:     all 0.1s ease-in-out;
 }
 
 .social-media-banner a i
@@ -565,4 +560,123 @@ button.contact:focus
 
 .contact-card-buttons{
 	margin: 0 auto;
+}
+
+.contact-det{
+	background-color: #212529;
+}
+
+.contact-container{
+	border: 2px solid #212529;
+	border-radius: 15px;
+	padding: 20px;
+	background-color: white;
+}
+
+.contact-details-brief {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+} 
+
+ .contact-container p{
+	line-height: 12px;
+	font-size: 15px;
+}
+
+.contact-details-brief p span {
+	font-weight: bolder;
+	font-size: 1.5em;
+
+}
+
+.contact-details-info{
+	margin-top: 15px;
+	margin-left: 25px;
+}
+
+.about-contact{
+	height: 45vh;
+	padding: 10px;
+}
+
+.contact-det .description {
+	 font-family: Satisfy, cursive;
+	 font-size: 1.2em;
+	overflow-Y:scroll;
+	height: 70%;
+	border: 1px solid grey;
+	border-radius: 5px;
+	padding: 5px;
+	cursor: pointer;
+} 
+
+/* CSS - Edit delete button */
+.button-85 {
+  padding: 0.2em 1em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.button-85:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 1px);
+  height: calc(100% + 1px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
 }

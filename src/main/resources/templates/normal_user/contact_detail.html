@@ -6,8 +6,45 @@
 <title>Contact Page</title>
 </head>
 <body>
-	<section>
-		<h1>Contact Page</h1>
+	<section class="contact_bg contact_list">
+		<div class="card mr-3 ml-3 col-md-8 offset-md-2">
+			<div class="card-body contact-det">
+				<div class="container contact-container">
+					<div class="row">
+						<div class="contact-details-brief">	
+							<img alt="profile photo" src="" th:src="@{'/image/'+ ${contact.imgUrl}}" class="contact-card-img" style="height: 200px; width: 220px;">
+							<div class="contact-details-info">
+								<p>Name: <span th:text="${contact.firstName} + ' ' + ${contact.lastName}"></span></p>
+								<p>Work: <span th:text="${contact.work}"></span></p>
+								<p>Address: <span th:text="${contact.address}"></span></p>
+								<p>Username: <span th:text="${contact.email}"></span></p>
+								<p>Phone: <span th:text="${contact.phone}"></span></p>
+								<p>DOB: <span th:text="${contact.dob}"></span></p>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row mt-3">
+						<div class="about-contact">
+							<p>Description:</p>
+							<div class="description">
+								<th:block th:text="${contact.description}" class="description-text"></th:block>
+							</div>
+							<div class="social-media-container mt-4">
+								<p>Social Handles:</p>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div>
+							<button class="btn button-85">Delete</button>
+							<button class="btn button-85">Edit</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</section>
 </body>
 </html>
