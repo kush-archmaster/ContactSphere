@@ -148,10 +148,12 @@ public class UserController {
 	
 	
 	@GetMapping("/contact/{contactId}")
-	public String showContactList(@PathVariable Long contactId, Model model) {
+	public String showContactList(@PathVariable Long contactId, Model model, Principal principal) {
 		Optional<Contact> contactOptional = contactRepository.findById(contactId);
 		Contact contact = contactOptional.get();
-		model.addAttribute("contact", contact);
+		if(principal.getName().equalsIgnoreCase(contact.getUser().getEmail())) {
+			model.addAttribute("contact", contact);
+		}
 		return "/normal_user/contact_detail";
 	}
 }

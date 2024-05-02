@@ -7,7 +7,7 @@
 </head>
 <body>
 	<section class="contact_bg contact_list">
-		<div class="card mr-3 ml-3 col-md-8 offset-md-2">
+		<div class="card mr-3 ml-3 col-md-8 offset-md-2" th:if="${contact}">
 			<div class="card-body contact-det">
 				<div class="container contact-container">
 					<div class="row">
@@ -45,6 +45,8 @@
 				</div>
 			</div>
 		</div>
+		
+		<h1 class="text-center p-3 bg-danger text-white" th:unless="${contact}">Permission Denied!</h1>
 	</section>
 </body>
 </html>
