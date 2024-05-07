@@ -153,7 +153,28 @@ public class UserController {
 		Contact contact = contactOptional.get();
 		if(principal.getName().equalsIgnoreCase(contact.getUser().getEmail())) {
 			model.addAttribute("contact", contact);
+			model.addAttribute("title", "ContactSphere - ".concat(contact.getFirstName()).concat(" ").concat(contact.getLastName()));
 		}
 		return "/normal_user/contact_detail";
+	}
+	
+	@GetMapping("/contact/delete/{contactId}")
+	public String deleteContact(@PathVariable Long contactId, Principal principal, HttpSession session) {
+		Optional<Contact> contactOptional = contactRepository.findById(contactId);
+		Contact contact = contactOptional.get();
+		/*
+		 * if user is authenticated for deleting the contact.
+		 */
+		if(principal.getName().equalsIgnoreCase(contact.getUser().getEmail())) {
+			/*
+			 * unlink contact from user, since we have set cascade.All
+			 */
+			contact.setUser(null);
+			/* remove image */
+			
+			contactRepository.deleteById(contactId);
+			session.setAttribute("message", new Message("Contact Deleted Successfully!", "alert-success"));
+		}
+		return "redirect:/user/viewContacts/0";
 	}
 }

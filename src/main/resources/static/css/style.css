@@ -368,11 +368,11 @@ contacts view style 1
 /*
 contacts view style 2 
 */
- .card-wrapper {
+ .card-wrapper {	
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	justify-content:space-around ;
+	justify-content: space-evenly; 
 }
 
 .card-body .card
@@ -394,7 +394,6 @@ contacts view style 2
         -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
 	-moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
 	box-shadow: 0 0 15px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.2);
-
 }
 
 .contact_list{

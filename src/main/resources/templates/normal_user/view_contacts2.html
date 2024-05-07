@@ -8,6 +8,9 @@
 		<div class="card col-md-8 offset-md-2">
 			<div class="card-body text-center">
 				<h2>Contact Book</h2>
+				<div th:if="${session.message}" th:classappend="${session.message.type}" class="alert pop-up-alert fade-in-alert" role="alert" id="alert">
+							<p class="text-center" th:text="${session.message.content}"></p>
+				</div> 
 				<div class="card-wrapper">
 					<div th:each="c : ${contactsList}" class="card">
 						<div class="photo">
@@ -23,7 +26,7 @@
 						</a>
 						<div class="contact-card-buttons mt-2">
 						<!-- HTML !-->
-							<button class="btn btn-danger button-85 btn-sm">Delete</button>
+							<a th:href="@{'/user/contact/delete/'+${c.cId}}" class="btn btn-danger button-85 btn-sm">Delete</a>
 							<button class="btn btn-primary button-85 btn-sm">Edit</button>
 						</div>
 						
@@ -38,7 +41,7 @@
 									<a class="page-link" th:href="@{'/user/viewContacts/' + ${currentPage-1}}">Previous</a>
 								</li>
 								<li th:each="i: ${#numbers.sequence(1, totalPages)}" th:classappend="${currentPage == i-1 ? 'active' : ''}" class="page-item">
-									<a class="page-link" th:href="@{'/user/viewContacts/' + ${currentPage}}"><span th:text="${i}"></span></a>
+									<a class="page-link" th:href="@{'/user/viewContacts/' + ${i-1}}"><span th:text="${i}"></span></a>
 								</li>
 								<li th:classappend="${currentPage+1 == totalPages ? 'disabled': ''}" class="page-item">
 									<a class="page-link" th:href="@{'/user/viewContacts/' + ${currentPage+1}}">Next</a>
