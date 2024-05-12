@@ -12,7 +12,8 @@
 							<p class="text-center" th:text="${session.message.content}"></p>
 				</div> 
 				<div class="card-wrapper">
-					<div th:each="c : ${contactsList}" class="card">
+				    <div th:if="${#lists.isEmpty(contactsList)}">No Contacts found!</div> 
+					<div th:unless="${#lists.isEmpty(contactsList)}" th:each="c : ${contactsList}" class="card">
 						<div class="photo">
 							<img alt="profile photo" src="" th:src="@{'/image/'+ ${c.imgUrl}}" class="contact-card-img">	
 						</div>
@@ -26,14 +27,16 @@
 						</a>
 						<div class="contact-card-buttons mt-2">
 						<!-- HTML !-->
-							<a th:href="@{'/user/contact/delete/'+${c.cId}}" class="btn btn-danger button-85 btn-sm">Delete</a>
-							<button class="btn btn-primary button-85 btn-sm">Edit</button>
+							<a href="#" th:data-contact="${c.cId}" onclick="deleteContact(this.getAttribute('data-contact'))" class="btn button-85 btn-sm">Delete</a>
+							<form th:action="@{'/user/contact/edit/' + ${c.cId}}" method="post"> 
+								<button class="btn button-85 btn-sm">Edit</button>
+							</form> 
 						</div>
-						
 					</div>
+					
 				</div>
 
-				<div class="container">
+				<div th:unless="${#lists.isEmpty(contactsList)}" class="container">
 					<div class="row">
 						<div class="col-md-6 offset-md-3">
 							<ul class="pagination justify-content-center">

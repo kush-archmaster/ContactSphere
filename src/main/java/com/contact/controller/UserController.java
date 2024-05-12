@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.contact.constants.ContactSphereConstants;
 import com.contact.dtos.ContactDto;
 import com.contact.entities.Contact;
 import com.contact.entities.User;
@@ -171,10 +172,17 @@ public class UserController {
 			 */
 			contact.setUser(null);
 			/* remove image */
-			
+			if(!ContactSphereConstants.DEFAULT_USER_IMG.equalsIgnoreCase(contact.getImgUrl())) {
+				
+			}
 			contactRepository.deleteById(contactId);
 			session.setAttribute("message", new Message("Contact Deleted Successfully!", "alert-success"));
 		}
 		return "redirect:/user/viewContacts/0";
+	}
+	
+	@PostMapping("contact/edit/{contactId}")
+	public String editContact() {
+		return "/normal_user/edit_contact";
 	}
 }

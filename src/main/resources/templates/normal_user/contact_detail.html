@@ -37,9 +37,11 @@
 					</div>
 					
 					<div class="row">
-						<div>
-							<button class="btn button-85">Delete</button>
-							<button class="btn button-85">Edit</button>
+						<div class="contact-card-buttons">
+							<button th:data-contact="${contact.cId}" onclick="deleteContact(this.getAttribute('data-contact'))" class="btn button-85">Delete</button>
+							<form th:action="@{'/user/contact/edit/' + ${contact.cId}}" method="post">
+								<button type="submit" class="btn button-85">Edit</button>
+							</form>
 						</div>
 					</div>
 				</div>

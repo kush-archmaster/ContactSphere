@@ -559,6 +559,8 @@ button.contact:focus
 
 .contact-card-buttons{
 	margin: 0 auto;
+	height: 2.2rem;
+	display: flex;
 }
 
 .contact-det{
@@ -589,6 +591,8 @@ button.contact:focus
 
 }
 
+
+
 .contact-details-info{
 	margin-top: 15px;
 	margin-left: 25px;
@@ -609,6 +613,11 @@ button.contact:focus
 	padding: 5px;
 	cursor: pointer;
 } 
+
+.contact-det .contact-card-buttons {
+	height: 2.5rem;
+	width: 15rem;
+}
 
 /* CSS - Edit delete button */
 .button-85 {
